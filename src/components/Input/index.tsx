@@ -1,13 +1,8 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-  useCallback,
-} from 'react';
+import { useEffect, useRef, useState, useCallback } from "react";
 
-import { useField } from '@unform/core';
+import { useField } from "@unform/core";
 
-import { Container } from './styles';
+import { Container } from "./styles";
 
 const Input = ({ name, icon: Icon, ...rest }: any) => {
   const inputRef = useRef<any>(null);
@@ -31,7 +26,7 @@ const Input = ({ name, icon: Icon, ...rest }: any) => {
     registerField({
       name: fieldName,
       ref: inputRef.current,
-      path: 'value',
+      path: "value",
     });
   }, [fieldName, registerField]);
 
@@ -39,13 +34,7 @@ const Input = ({ name, icon: Icon, ...rest }: any) => {
     <Container isFilled={isFilled} isFocused={isFocused}>
       {Icon && <Icon size={20} />}
 
-      <input
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
-        defaultValue={defaultValue}
-        ref={inputRef}
-        {...rest}
-      />
+      <input onFocus={handleInputFocus} onBlur={handleInputBlur} defaultValue={defaultValue} ref={inputRef} {...rest} />
     </Container>
   );
 };
